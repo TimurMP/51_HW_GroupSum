@@ -29,8 +29,8 @@ public class ThreadGroupSum extends NumberSum {
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
-
         }
+
         return Arrays.stream(tasks)
                 .mapToInt(OneGroupSum::getSum)
                 .sum();

@@ -1,5 +1,6 @@
 package telran.numbers.controller;
 
+import telran.numbers.model.ExecutorGroupSum;
 import telran.numbers.model.NumberSum;
 import telran.numbers.model.ThreadGroupSum;
 import telran.numbers.tests.GroupSumPerfomanceTest;
@@ -14,13 +15,17 @@ public class GroupSumAppl {
 
     public static void main(String[] args) {
         fillArray();
-//        NumberSum executorsSum = new ExecutorGroupSum(arr);
+        NumberSum executorsSum = new ExecutorGroupSum(arr);
         NumberSum threadSum = new ThreadGroupSum(arr);
 //        NumberSum streamSum = new ParallelStreamGroupSum(arr);
-//        new GroupSumPerfomanceTest("ExecutorGroupSum", executorsSum).runTest();
+        new GroupSumPerfomanceTest("ExecutorGroupSum", executorsSum).runTest();
 //        new GroupSumPerfomanceTest("ParallelStreamGroupSum", streamSum).runTest();
         new GroupSumPerfomanceTest("ThreadGroupSum", threadSum).runTest();
-//        System.out.println(sum());
+
+        long t1 = System.currentTimeMillis();
+        int sumWoThreads = sum();
+        long t2 = System.currentTimeMillis();
+        System.out.println("Test name: W/O threads, time = "  + (t2-t1) + ", sum = " + sumWoThreads);
 
     }
 
@@ -33,16 +38,16 @@ public class GroupSumAppl {
 
     }
 
-//    private static int sum() {
-//        int total = 0;
-//        for (int i = 0; i < arr.length; i++) {
-//            for (int j = 0; j < arr[i].length; j++) {
-//                total += arr[i][j];
-//            }
-//        }
-//        return total;
-//
-//    }
+    private static int sum() {
+        int total = 0;
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = 0; j < arr[i].length; j++) {
+                total += arr[i][j];
+            }
+        }
+        return total;
+
+    }
 
 
 
