@@ -22,8 +22,8 @@ public class ExecutorGroupSum extends NumberSum {
         }
         ExecutorService executorService = Executors.newFixedThreadPool
                 (Runtime.getRuntime().availableProcessors()/2);
-//        CPUs divided by 2 for some reason gave better results (twice faster)
-//        Example:
+//        CPUs divided by 2 for some reason gave me better results (twice faster)
+//        Example output:
 //        Test name: ExecutorGroupSum, time = 74, sum = 2138327843 (without CPU/2, or with CPU*2 I got 100+ ms)
 //        Test name: ThreadGroupSum, time = 562, sum = 2138327843
 
