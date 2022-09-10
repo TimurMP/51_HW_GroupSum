@@ -1,5 +1,7 @@
 package telran.numbers.model;
 
+import java.util.Arrays;
+
 public class ParallelStreamGroupSum extends NumberSum {
 
     public ParallelStreamGroupSum(int[][] numbersGroup) {
@@ -8,8 +10,8 @@ public class ParallelStreamGroupSum extends NumberSum {
 
     @Override
     public int computeSum() {
-        // TODO Auto-generated method stub
-        return 0;
+        return Arrays.stream(numbersGroup).parallel()
+                .flatMapToInt(Arrays::stream).sum();
     }
 
 }

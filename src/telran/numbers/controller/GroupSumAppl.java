@@ -2,6 +2,7 @@ package telran.numbers.controller;
 
 import telran.numbers.model.ExecutorGroupSum;
 import telran.numbers.model.NumberSum;
+import telran.numbers.model.ParallelStreamGroupSum;
 import telran.numbers.model.ThreadGroupSum;
 import telran.numbers.tests.GroupSumPerfomanceTest;
 
@@ -17,9 +18,9 @@ public class GroupSumAppl {
         fillArray();
         NumberSum executorsSum = new ExecutorGroupSum(arr);
         NumberSum threadSum = new ThreadGroupSum(arr);
-//        NumberSum streamSum = new ParallelStreamGroupSum(arr);
+        NumberSum streamSum = new ParallelStreamGroupSum(arr);
         new GroupSumPerfomanceTest("ExecutorGroupSum", executorsSum).runTest();
-//        new GroupSumPerfomanceTest("ParallelStreamGroupSum", streamSum).runTest();
+        new GroupSumPerfomanceTest("ParallelStreamGroupSum", streamSum).runTest();
         new GroupSumPerfomanceTest("ThreadGroupSum", threadSum).runTest();
 
         long t1 = System.currentTimeMillis();
