@@ -26,7 +26,7 @@ public class GroupSumAppl {
         long t1 = System.currentTimeMillis();
         int sumWoThreads = sum();
         long t2 = System.currentTimeMillis();
-        System.out.println("Test name: W/O threads, time = "  + (t2-t1) + ", sum = " + sumWoThreads);
+        System.out.println("Test name: W/O threads, time = " + (t2 - t1) + ", sum = " + sumWoThreads);
 
     }
 
@@ -49,7 +49,6 @@ public class GroupSumAppl {
         return total;
 
     }
-
 
 
 }
